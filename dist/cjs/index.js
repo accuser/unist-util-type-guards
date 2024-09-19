@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isParent = exports.isNode = exports.isLiteral = void 0;
-var is_literal_js_1 = require("./is-literal.cjs");
+var is_literal_js_1 = require("./is-literal.js");
 Object.defineProperty(exports, "isLiteral", { enumerable: true, get: function () { return __importDefault(is_literal_js_1).default; } });
-var is_node_js_1 = require("./is-node.cjs");
+var is_node_js_1 = require("./is-node.js");
 Object.defineProperty(exports, "isNode", { enumerable: true, get: function () { return __importDefault(is_node_js_1).default; } });
-var is_parent_js_1 = require("./is-parent.cjs");
+var is_parent_js_1 = require("./is-parent.js");
 Object.defineProperty(exports, "isParent", { enumerable: true, get: function () { return __importDefault(is_parent_js_1).default; } });
