@@ -1,7 +1,6 @@
 .DS_Store
 .pnpm-store
 node_modules
-dist
 .env
 .env.*
 !.env.example
