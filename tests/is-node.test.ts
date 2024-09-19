@@ -1,5 +1,5 @@
+import { isNode } from '@accuser/unist-util-type-guards';
 import { describe, expect, test } from 'vitest';
-import isNode from './is-node.js';
 
 describe('isNode', () => {
 	test('should return `false` for `null`', () => {

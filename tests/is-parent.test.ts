@@ -1,5 +1,5 @@
+import { isParent } from '@accuser/unist-util-type-guards';
 import { describe, expect, test } from 'vitest';
-import isParent from './is-parent.js';
 
 describe('isLiteral', () => {
 	test('should return `false` for `null`', () => {

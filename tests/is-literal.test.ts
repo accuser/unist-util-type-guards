@@ -1,5 +1,5 @@
+import { isLiteral } from '@accuser/unist-util-type-guards';
 import { describe, expect, test } from 'vitest';
-import isLiteral from './is-literal.js';
 
 describe('isLiteral', () => {
 	test('should return `false` for `null`', () => {
