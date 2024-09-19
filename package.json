@@ -1,0 +1,63 @@
+{
+	"name": "@accuser/unist-util-type-guards",
+	"version": "1.0.0",
+	"description": "TypeScript type guards for `unist` nodes.",
+	"type": "module",
+	"main": "dist/index.js",
+	"exports": {
+		".": {
+			"default": "./dist/index.js",
+			"import": {
+				"default": "./dist/index.js",
+				"types": "./dist/index.d.ts"
+			},
+			"require": {
+				"default": "./dist/cjs/index.js",
+				"types": "./dist/cjs/index.d.ts"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "duel",
+		"format": "prettier --write {src,test}/**/*.{js,ts}",
+		"lint": "eslint",
+		"test": "vitest"
+	},
+	"keywords": [
+		"unist",
+		"typescript",
+		"type guard"
+	],
+	"author": {
+		"email": "mhgibbons@me.com",
+		"name": "Matthew Gibbons",
+		"url": "https://github.com/accuser"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/accuser/unist-util-type-guards.git"
+	},
+	"bugs": {
+		"url": "https://github.com/accuser/unist-util-type-guards/issues"
+	},
+	"peerDependencies": {
+		"@types/unist": "^3.0.3"
+	},
+	"devDependencies": {
+		"@knighted/duel": "^1.0.8",
+		"@types/node": "^22.5.5",
+		"@typescript-eslint/eslint-plugin": "^8.6.0",
+		"@typescript-eslint/parser": "^8.6.0",
+		"eslint": "^9.10.0",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.3.3",
+		"tslib": "^2.7.0",
+		"typescript": "^5.6.2",
+		"vitest": "^2.1.1"
+	}
+}
