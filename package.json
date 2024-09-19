@@ -12,8 +12,8 @@
 				"types": "./dist/index.d.ts"
 			},
 			"require": {
-				"default": "./dist/cjs/index.js",
-				"types": "./dist/cjs/index.d.ts"
+				"default": "./dist/index.cjs",
+				"types": "./dist/index.d.ts"
 			}
 		},
 		"./package.json": "./package.json"
@@ -22,7 +22,9 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "duel",
+		"build": "pnpm build:cjs && pnpm build:esm",
+		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
+		"build:esm": "tsc",
 		"format": "prettier --write {src,test}/**/*.{js,ts}",
 		"lint": "eslint",
 		"test": "vitest"
@@ -49,7 +51,6 @@
 		"@types/unist": "^3.0.3"
 	},
 	"devDependencies": {
-		"@knighted/duel": "^1.0.8",
 		"@types/node": "^22.5.5",
 		"@typescript-eslint/eslint-plugin": "^8.6.0",
 		"@typescript-eslint/parser": "^8.6.0",
