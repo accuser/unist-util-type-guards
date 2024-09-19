@@ -25,7 +25,7 @@ if (isNode(node)) {
 
 ## API
 
-This package exports the identifiers [`isNode`](#isnode-node-unknown-node-is-node), [`isParent`](#isparent-node-unknown-node-is-parent), and [`isLiteral`](#isliteral-node-uknown-node-is-literal). There is no default export.
+This package exports the identifiers [`isNode`](api-isnode), [`isParent`](api-isparent), and [`isLiteral`](api-isliteral). There is no default export.
 
 ### `isNode(node: unknown): node is Node`
 
@@ -75,3 +75,7 @@ npm test
 ## License
 
 [MIT](https://raw.githubusercontent.com/accuser/unist-util-type-guards/main/LICENSE)
+
+[api-isnode]: #isnodenode-unknown-node-is-node
+[api-isparent]: #isparentnode-node-unknown-node-is-parent
+[api-isliteral]: #isliteralnode-node-unknown-node-is-literal
