@@ -1,7 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ((node) => node !== null &&
-    node !== undefined &&
-    typeof node === 'object' &&
-    'type' in node &&
-    typeof node.type === 'string');
+/**
+ * Type guard that checks if a value is a {@link Node} node.
+ *
+ * @param value - The value to test.
+ * @returns {boolean} Whether `value` is a {@link Node} node.
+ * @see {@link https://github.com/syntax-tree/unist#node} for more information.
+ *
+ * @example
+ * ```ts
+ * const node = { type: 'leaf' };
+ * isNode(node); //=> true, node is Node
+ * ```
+ */
+exports.default = ((value) => value !== null &&
+    value !== undefined &&
+    typeof value === 'object' &&
+    'type' in value &&
+    typeof value.type === 'string');
