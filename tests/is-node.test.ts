@@ -1,16 +1,21 @@
-import { isNode } from '@accuser/unist-util-type-guards';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { isNode } from '../dist';
 
 describe('isNode', () => {
-	test('should return `false` for `null`', () => {
-		expect(isNode(null)).toBe(false);
+	it('returns `true` for a valid node', () => {
+		const node = { type: 'leaf' };
+		expect(isNode(node)).toBe(true);
 	});
 
-	test('should return `false` for `undefined`', () => {
-		expect(isNode(undefined)).toBe(false);
-	});
+	for (const value of [null, undefined, true, false, 'leaf', 42, {}]) {
+		it('returns `false` for a non-node value', () => {
+			expect(isNode(value)).toBe(false);
+		});
+	}
 
-	test('should return `true` for a valid node', () => {
-		expect(isNode({ type: 'node' })).toBe(true);
-	});
+	for (const type of [null, undefined, true, false, 42, {}]) {
+		it('returns `false` for a node with an invalid type', () => {
+			expect(isNode({ type })).toBe(false);
+		});
+	}
 });

@@ -1,20 +1,21 @@
 import { isLiteral } from '@accuser/unist-util-type-guards';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 describe('isLiteral', () => {
-	test('should return `false` for `null`', () => {
-		expect(isLiteral(null)).toBe(false);
+	it('returns `true` for a valid node', () => {
+		const node = { type: 'leaf', value: 'value' };
+		expect(isLiteral(node)).toBe(true);
 	});
 
-	test('should return `false` for `undefined`', () => {
-		expect(isLiteral(undefined)).toBe(false);
-	});
+	for (const value of [null, undefined, true, false, 'leaf', 42, {}]) {
+		it('returns `false` for a non-node value', () => {
+			expect(isLiteral(value)).toBe(false);
+		});
+	}
 
-	test('should return `false` for a non-literal node', () => {
-		expect(isLiteral({ type: 'node' })).toBe(false);
-	});
-
-	test('should return `true` for a valid literal node', () => {
-		expect(isLiteral({ type: 'node', value: 'Hello, World!' })).toBe(true);
-	});
+	for (const value of [null, undefined, true, false, 42, {}]) {
+		it('returns `false` for a node with an invalid value type', () => {
+			expect(isLiteral({ type: 'leaf', value })).toBe(false);
+		});
+	}
 });

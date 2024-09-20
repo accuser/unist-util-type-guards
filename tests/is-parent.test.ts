@@ -1,20 +1,22 @@
-import { isParent } from '@accuser/unist-util-type-guards';
-import { describe, expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { isParent } from '../dist';
 
-describe('isLiteral', () => {
-	test('should return `false` for `null`', () => {
-		expect(isParent(null)).toBe(false);
+describe('isNode', () => {
+	it('returns `true` for a valid paretn node', () => {
+		const node = { type: 'tree', children: [] };
+		expect(isParent(node)).toBe(true);
 	});
 
-	test('should return `false` for `undefined`', () => {
-		expect(isParent(undefined)).toBe(false);
-	});
+	for (const value of [null, undefined, true, false, 'tree', 42, {}, { children: [] }]) {
+		it('returns `false` for a non-node value', () => {
+			expect(isParent(value)).toBe(false);
+		});
+	}
 
-	test('should return `false` for a non-parent node', () => {
-		expect(isParent({ type: 'node' })).toBe(false);
-	});
-
-	test('should return `true` for a valid parent node', () => {
-		expect(isParent({ type: 'node', children: [] })).toBe(true);
-	});
+	for (const children of [null, undefined, true, false, 42]) {
+		it('returns `false` for a node with an invalid children value', () => {
+			const node = { type: 'tree', children };
+			expect(isParent(node)).toBe(false);
+		});
+	}
 });
