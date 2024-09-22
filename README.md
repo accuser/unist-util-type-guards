@@ -128,10 +128,10 @@ npm test
 
 [MIT](https://raw.githubusercontent.com/accuser/unist-util-type-guards/main/LICENSE)
 
-[api-isliteral]: #isliteralvalue-value-unknown-value-is-literal
+[api-isliteral]: #isliteralvalue-unknown-value-is-literal
 [api-ismonoparous]: #ismonoparousvalue-unknown-value-is-parent
 [api-ismultiparous]: #ismultiparousvalue-unknown-value-is-parent
-[api-isnode]: #isnodevalue-unknown-value-is-value
+[api-isnode]: #isnodevalue-unknown-value-is-node
 [api-isnulliparous]: #isnulliparousvalue-unknown-value-is-parent
 [api-isparent]: #isparentvalue-value-unknown-value-is-parent
 [literal]: https://github.com/syntax-tree/unist#literal
