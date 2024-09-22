@@ -27,22 +27,18 @@ isParent(node); // false
 
 This package exports the following identifiers:
 
-- [`isLiteral`](api-isliteral)
-- [`isMonoparous`](api-ismonoparous)
-- [`isMultiparous`](api-ismultiparous)
-- [`isNode`](api-isnode)
-- [`isNulliparous`](api-isnulliparous)
-- [`isParent`](api-isparent)
-
-This package exports the following types:
-
-- [`TypeGuard`](api-typeguard)
+- [`isLiteral`](#isliteralvalue-unknown-node-is-literal)
+- [`isMonoparous`](#ismonoparousvalue-unknown-value-is-parent)
+- [`isMultiparous`](#ismultiparousvalue-unknown-value-is-parent)
+- [`isNode`](#isnodevalue-unknown-value-is-node)
+- [`isNulliparous`](#isnulliparousvalue-unknown-value-is-parent)
+- [`isParent`](#isparentvalue-unknown-value-is-parent)
 
 There is no default export.
 
 ### `isLiteral(value: unknown): node is Literal`
 
-Test is the given value is a valid [`Literal`](literal).
+Test is the given value is a valid [`Literal`](https://github.com/syntax-tree/unist#literal).
 
 ###### Parameters
 
@@ -51,11 +47,11 @@ Test is the given value is a valid [`Literal`](literal).
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Literal`](literal).
+Returns `true` if `value` is a valid [`Literal`](https://github.com/syntax-tree/unist#literal).
 
 ### `isMonoparous(value: unknown): value is Parent`
 
-Test is a given value is a valid [`Parent`](parent) with exactly one child.
+Test is a given value is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with exactly one child.
 
 ###### Parameters
 
@@ -64,11 +60,11 @@ Test is a given value is a valid [`Parent`](parent) with exactly one child.
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Parent`](parent) with exactly one child.
+Returns `true` if `value` is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with exactly one child.
 
 ### `isMultiparous(value: unknown): value is Parent`
 
-Test is a given value is a valid [`Parent`](parent) with more than one child.
+Test is a given value is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with more than one child.
 
 ###### Parameters
 
@@ -77,11 +73,11 @@ Test is a given value is a valid [`Parent`](parent) with more than one child.
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Parent`](parent) with more than one child.
+Returns `true` if `value` is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with more than one child.
 
 ### `isNode(value: unknown): value is Node`
 
-Test is a given value is a valid [`Node`](node).
+Test is a given value is a valid [`Node`](https://github.com/syntax-tree/unist#node).
 
 ###### Parameters
 
@@ -90,11 +86,11 @@ Test is a given value is a valid [`Node`](node).
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Node`](node).
+Returns `true` if `value` is a valid [`Node`](https://github.com/syntax-tree/unist#node).
 
 ### `isNulliparous(value: unknown): value is Parent`
 
-Test is a given value is a valid [`Parent`](parent) with no children.
+Test is a given value is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with no children.
 
 ###### Parameters
 
@@ -103,11 +99,11 @@ Test is a given value is a valid [`Parent`](parent) with no children.
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Parent`](parent) with no children.
+Returns `true` if `value` is a valid [`Parent`](https://github.com/syntax-tree/unist#parent) with no children.
 
 ### `isParent(value: unknown): value is Parent`
 
-Test is a given value is a valid [`Parent`](parent).
+Test is a given value is a valid [`Parent`](https://github.com/syntax-tree/unist#parent).
 
 ###### Parameters
 
@@ -116,7 +112,7 @@ Test is a given value is a valid [`Parent`](parent).
 
 ###### Returns
 
-Returns `true` if `value` is a valid [`Parent`](parent).
+Returns `true` if `value` is a valid [`Parent`](https://github.com/syntax-tree/unist#parent).
 
 ## Tests
 
@@ -127,13 +123,3 @@ npm test
 ## License
 
 [MIT](https://raw.githubusercontent.com/accuser/unist-util-type-guards/main/LICENSE)
-
-[api-isliteral]: #isliteralvalue-unknown-value-is-literal
-[api-ismonoparous]: #ismonoparousvalue-unknown-value-is-parent
-[api-ismultiparous]: #ismultiparousvalue-unknown-value-is-parent
-[api-isnode]: #isnodevalue-unknown-value-is-node
-[api-isnulliparous]: #isnulliparousvalue-unknown-value-is-parent
-[api-isparent]: #isparentvalue-value-unknown-value-is-parent
-[literal]: https://github.com/syntax-tree/unist#literal
-[parent]: https://github.com/syntax-tree/unist#parent
-[node]: https://github.com/syntax-tree/unist#node
