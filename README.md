@@ -14,22 +14,100 @@ npm install @accuser/unist-util-type-guards
 import { isNode } from '@accuser/unist-util-type-guards';
 
 const node = {
-  type: 'text',
-  value: 'Hello, world!'
+  type: 'leaf',
+  value: 'Leaf'
 };
 
-if (isNode(node)) {
-  console.log('This is a valid Unist node.');
-}
+isNode(node); // true, node is Node
+isLiteral(node); // true, node is Literal
+isParent(node); // false
 ```
 
 ## API
 
-This package exports the identifiers [`isNode`](api-isnode), [`isParent`](api-isparent), and [`isLiteral`](api-isliteral). There is no default export.
+This package exports the following identifiers:
 
-### `isNode(node: unknown): node is Node`
+- [`isLiteral`](api-isliteral)
+- [`isMonoparous`](api-ismonoparous)
+- [`isMultiparous`](api-ismultiparous)
+- [`isNode`](api-isnode)
+- [`isNulliparous`](api-isnulliparous)
+- [`isParent`](api-isparent)
 
-Test is a given value is a valid Unist node.
+This package exports the following types:
+
+- [`TypeGuard`](api-typeguard)
+
+There is no default export.
+
+### `isLiteral(value: unknown): node is Literal`
+
+Test is the given value is a valid [`Literal`](literal).
+
+###### Parameters
+
+* `value` (`unknown`)
+	- value to check.
+
+###### Returns
+
+Returns `true` if `value` is a valid [`Literal`](literal).
+
+### `isMonoparous(value: unknown): value is Parent`
+
+Test is a given value is a valid [`Parent`](parent) with exactly one child.
+
+###### Parameters
+
+* `value` (`unknown`)
+	- value to check.
+
+###### Returns
+
+Returns `true` if `value` is a valid [`Parent`](parent) with exactly one child.
+
+### `isMultiparous(value: unknown): value is Parent`
+
+Test is a given value is a valid [`Parent`](parent) with more than one child.
+
+###### Parameters
+
+* `value` (`unknown`)
+	- value to check.
+
+###### Returns
+
+Returns `true` if `value` is a valid [`Parent`](parent) with more than one child.
+
+### `isNode(value: unknown): value is Node`
+
+Test is a given value is a valid [`Node`](node).
+
+###### Parameters
+
+* `value` (`unknown`)
+	- value to check.
+
+###### Returns
+
+Returns `true` if `value` is a valid [`Node`](node).
+
+### `isNulliparous(value: unknown): value is Parent`
+
+Test is a given value is a valid [`Parent`](parent) with no children.
+
+###### Parameters
+
+* `value` (`unknown`)
+	- value to check.
+
+###### Returns
+
+Returns `true` if `value` is a valid [`Parent`](parent) with no children.
+
+### `isParent(value: unknown): value is Parent`
+
+Test is a given value is a valid [`Parent`](parent).
 
 ###### Parameters
 
@@ -38,33 +116,7 @@ Test is a given value is a valid Unist node.
 
 ###### Returns
 
-Returns `true` if `node` is a valid Unist node.
-
-### `isParent(node: unknown): node is Parent`
-
-Test is a given value is a valid Unist parent node.
-
-###### Parameters
-
-* `node` (`unknown`)
-	- value to check.
-
-###### Returns
-
-Returns `true` if `node` is a valid Unist parent node.
-
-### `isLiteral(node: unknown): node is Literal`
-
-Test is a given value is a valid Unist literal node.
-
-###### Parameters
-
-* `node` (`unknown`)
-	- value to check.
-
-###### Returns
-
-Returns `true` if `node` is a valid Unist literal node.
+Returns `true` if `value` is a valid [`Parent`](parent).
 
 ## Tests
 
@@ -76,6 +128,12 @@ npm test
 
 [MIT](https://raw.githubusercontent.com/accuser/unist-util-type-guards/main/LICENSE)
 
-[api-isnode]: #isnodenode-unknown-node-is-node
-[api-isparent]: #isparentnode-node-unknown-node-is-parent
-[api-isliteral]: #isliteralnode-node-unknown-node-is-literal
+[api-isliteral]: #isliteralvalue-value-unknown-value-is-literal
+[api-ismonoparous]: #ismonoparousvalue-unknown-value-is-parent
+[api-ismultiparous]: #ismultiparousvalue-unknown-value-is-parent
+[api-isnode]: #isnodevalue-unknown-value-is-value
+[api-isnulliparous]: #isnulliparousvalue-unknown-value-is-parent
+[api-isparent]: #isparentvalue-value-unknown-value-is-parent
+[literal]: https://github.com/syntax-tree/unist#literal
+[parent]: https://github.com/syntax-tree/unist#parent
+[node]: https://github.com/syntax-tree/unist#node
