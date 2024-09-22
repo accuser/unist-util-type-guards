@@ -1,6 +1,6 @@
 {
 	"name": "@accuser/unist-util-type-guards",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"description": "TypeScript type guards for `unist` nodes.",
 	"type": "module",
 	"main": "dist/index.js",
